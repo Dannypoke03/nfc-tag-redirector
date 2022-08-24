@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { createClient } from 'redis';
+import path from "path";
 
 dotenv.config();
 
@@ -16,10 +17,6 @@ client.on('error', (err) => console.log('Redis Client Error', err));
 })();
 
 app.use(express.json());
-
-app.get('/', (req: Request, res: Response) => {
-    res.send('Express + TypeScript Server');
-});
 
 app.post('/api/add-key/:id', async (req: Request, res: Response) => {
     await client.set(req.params.id, req.body.value);
@@ -57,6 +54,11 @@ app.get('/api/redirect/:id', async (req: Request, res: Response) => {
     } else {
         res.send('No redirect found');
     }
+});
+
+app.use(express.static('dist/public'));
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../dist/public/index.html"));
 });
 
 app.listen(port, () => {
