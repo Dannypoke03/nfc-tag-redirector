@@ -42,7 +42,10 @@
     }
 </script>
 
-<link rel="stylesheet" href="node_modules/svelte-material-ui/bare.css" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/svelte-material-ui@6.0.0/bare.min.css"
+/>
 <link defer rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700" />
