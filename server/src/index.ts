@@ -48,7 +48,7 @@ app.get('/api/all-keys', async (req: Request, res: Response) => {
 });
 
 app.get('/api/redirect/:id', async (req: Request, res: Response) => {
-    const result = await client.get("nfc-" + req.params.id);
+    const result = await client.get(req.params.id);
     if (result) {
         res.redirect(result);
     } else {
